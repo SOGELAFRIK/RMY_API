@@ -1,6 +1,7 @@
 const Sequelize = require("sequelize");
 const initModels = require("../models/init-models");
 const bcrypt = require("bcrypt");
+const mysql2 = require("mysql2");
 require("dotenv").config();
 
 //connexion a la base donées
@@ -11,6 +12,7 @@ const sequelize = new Sequelize(
   {
     host: process.env.DB_HOST,
     dialect: process.env.DB_DIALECT,
+    dialectModule: mysql2, // Needed to fix sequelize issues with WebPack
     dialectOptions: {
       // timezone: process.env.DB_TIMEZONE,
     },
