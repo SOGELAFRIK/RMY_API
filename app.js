@@ -109,16 +109,18 @@ require("./src/routes/user/forgortPassword")(app);
 /* WORKFLOW */
 require('./src/routes/workflow/createWorkflow')(app);
 require('./src/routes/workflow/updateWorkflow')(app);
-require('./src/routes/workflow/deleteWorkflow')(app)
+require('./src/routes/workflow/deleteWorkflow')(app);
 require('./src/routes/workflow/findAllWorkflow')(app);
-require('./src/routes/workflow/findWorkflowById')(app)
+require('./src/routes/workflow/findWorkflowById')(app);
 
 /* LOGIN */
 require('./src/routes/login')(app);
 
 app.use(({ res }) => {
-    const message = "Impossible de trouver la ressource demander! vous pouver essayer une autre URL"
-    res.status(404).json({ message })
+    const message = "Impossible de trouver la ressource demander! vous pouver essayer une autre URL";
+    res.status(404).json({ message });
 })
 
-app.listen(port, () => console.log(`Notre application Node est demarée sur : http://localhost:${port}`))
+app.listen(port, () => console.log(`Notre application Node est demarée sur : http://localhost:${port}`));
+
+module.exports = app
