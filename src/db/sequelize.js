@@ -12,7 +12,7 @@ const sequelize = new Sequelize(
   {
     host: process.env.DB_HOST,
     dialect: process.env.DB_DIALECT,
-    dialectModule: mysql2, // Needed to fix sequelize issues with WebPack
+    dialectModule: mysql2,
     dialectOptions: {
       // timezone: process.env.DB_TIMEZONE,
     },
