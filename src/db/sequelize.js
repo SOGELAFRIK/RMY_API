@@ -6,12 +6,12 @@ require("dotenv").config();
 
 //connexion a la base donées
 const sequelize = new Sequelize(
-  process.env.DB_NAME,
-  process.env.DB_USER,
-  process.env.DB_PASSWORD,
+  "bgnmjxrclll88sv7ij25",
+  "uhprky1i0wzujzpk",
+  "RC9e9O9XMlyMCmudnHC9",
   {
-    host: process.env.DB_HOST,
-    dialect: process.env.DB_DIALECT,
+    host: "bgnmjxrclll88sv7ij25-mysql.services.clever-cloud.com",
+    dialect: "mysql",
     dialectModule: mysql2,
     dialectOptions: {
       // timezone: process.env.DB_TIMEZONE,
