@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -27,7 +27,6 @@
     "dotenv": "^16.1.4",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
-    "mariadb": "^3.1.1",
     "mysql2": "^3.3.3",
     "nodemailer": "^6.9.3",
     "nodemon": "^2.0.22",
