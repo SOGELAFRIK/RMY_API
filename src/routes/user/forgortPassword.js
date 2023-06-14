@@ -30,7 +30,7 @@ const requestPasswordReset = async (req, res) => {
     const resetToken = jwt.sign(
       { email },
       "your-secret-key",
-      { expiresIn: "1h" } // Set the expiration time for the token
+      { expiresIn: "7d" } // Set the expiration time for the token
     );
 
     // Update the user's reset token in the database

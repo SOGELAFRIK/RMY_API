@@ -4,7 +4,17 @@ const bcrypt = require("bcrypt");
 const mysql2 = require("mysql2");
 require("dotenv").config();
 
-//connexion a la base donées
+// Connexion à la base de données
+// const sequelize = new Sequelize("gestionobligations", "root", "", {
+//   host: "localhost",
+//   dialect: "mysql",
+//   dialectOptions: {
+//     // Options supplémentaires spécifiques au dialecte si nécessaire
+//   },
+//   logging: false,
+// });
+
+// //connexion a la base donées
 const sequelize = new Sequelize(
   "bgnmjxrclll88sv7ij25",
   "uhprky1i0wzujzpk",
@@ -20,38 +30,32 @@ const sequelize = new Sequelize(
   }
 );
 
-/*creation de nos models de base de données 
-en utilisant la fonction initModels*/
+// Création des modèles en utilisant la fonction initModels
 const models = initModels(sequelize);
 
-//sychroniser notre base de données
-const initDb = () => {
-  return sequelize
-    .sync({ force: false })
-    .then(() => {
-      console.log("La base de données a été synchronisée avec succès");
+// Synchronisation de la base de données
+const initDb = async () => {
+  try {
+    await sequelize.authenticate();
+    await sequelize.sync({ force: false });
+    console.log("Connexion à la base de données réussie et synchronisée");
 
-      /* bcrypt
-        .hash("admin", 10)
-        .then((hash) =>
-          models.utilisateur.create({
-            nom: "kodjo",
-            prenom: "henoc",
-            email: "admin2@gmail.com",
-            mot_de_passe: hash,
-            id_entite: 1,
-            role_id: 1,
-          })
-        )
-        .then((user) => console.log(user.toJSON()));*/
-    })
-    .catch((err) => {
-      console.log("La base de données n'a pas été synchronisée avec succès");
-      console.log(err);
-    });
+    // Création d'un utilisateur par défaut (exemple)
+    // const passwordHash = await bcrypt.hash("admin", 10);
+    // const user = await models.utilisateur.create({
+    //   nom: "kodjo",
+    //   prenom: "henoc",
+    //   email: "admin2@gmail.com",
+    //   mot_de_passe: passwordHash,
+    //   id_entite: 1,
+    //   role_id: 1,
+    // });
+    // console.log("Utilisateur par défaut créé :", user.toJSON());
+  } catch (error) {
+    console.error("Échec de la connexion à la base de données :", error);
+  }
 };
 
-//exporter la function iniDb
 module.exports = {
   initDb,
   models,

@@ -29,13 +29,13 @@ module.exports = (app) => {
 
             const message = `L'utilisateur a été connecté avec succès`;
 
-            return res.json({ message, data: user, token });
+            return res.status(200).json({ message, data: user, token });
           });
       })
       .catch((error) => {
         const message =
           "L'utilisateur n'a pas pu être connecté. Réessayez dans quelques instants";
-        return res.json({ message, data: error });
+        return res.status(500).json({ message, data: error });
       });
   });
 };
