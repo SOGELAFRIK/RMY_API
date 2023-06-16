@@ -4,7 +4,7 @@ const auth = require("../../auth/auth");
 const getUserRole = require("../../auth/getUserRole");
 
 module.exports = (app) => {
-  app.post("/api/entites", auth(1, getUserRole), async (req, res) => {
+  app.post("/api/entite", auth(1, getUserRole), async (req, res) => {
     try {
       const { nom, adresse, ville, pays } = req.body;
 
