@@ -1,5 +1,6 @@
 const { models } = require("../../db/sequelize");
 const auth = require("../../auth/auth");
+const getUserRole = require("../../auth/getUserRole");
 
 const deleteUser = async (req, res) => {
     try {
@@ -20,5 +21,5 @@ const deleteUser = async (req, res) => {
 };
 
 module.exports = (app) => {
-    app.delete("/api/user/:id", auth, deleteUser);
+    app.delete("/api/user/:id", auth(1, getUserRole), deleteUser);
 };
