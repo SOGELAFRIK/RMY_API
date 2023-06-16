@@ -1,9 +1,10 @@
 const { ValidationError, UniqueConstraintError } = require("sequelize");
 const { models } = require("../../db/sequelize");
 const auth = require("../../auth/auth");
+const getUserRole = require("../../auth/getUserRole");
 
 module.exports = (app) => {
-  app.post("/api/entites", auth, async (req, res) => {
+  app.post("/api/entites", auth(1, getUserRole), async (req, res) => {
     try {
       const { nom, adresse, ville, pays } = req.body;
 

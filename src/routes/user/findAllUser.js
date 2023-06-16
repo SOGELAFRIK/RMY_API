@@ -1,9 +1,10 @@
 const { Op } = require("sequelize");
 const { models } = require("../../db/sequelize");
 const auth = require("../../auth/auth");
+const getUserRole = require("../../auth/getUserRole");
 
 module.exports = (app) => {
-  app.get("/api/user", auth, async (req, res) => {
+  app.get("/api/user", auth(1, getUserRole), async (req, res) => {
     try {
       // Recherche d'un utilisateur par nom
       if (req.query.nom) {

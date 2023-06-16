@@ -1,9 +1,10 @@
 const { Op } = require("sequelize");
 const { models } = require("../../db/sequelize");
 const auth = require("../../auth/auth");
+const getUserRole = require("../../auth/getUserRole");
 
 module.exports = (app) => {
-  app.get("/api/obligation", auth, async (req, res) => {
+  app.get("/api/obligation", auth(1, getUserRole), async (req, res) => {
     try {
       // Recherche d'une obligation par titre
       if (req.query.titre) {

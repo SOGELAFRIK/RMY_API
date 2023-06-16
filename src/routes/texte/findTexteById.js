@@ -1,9 +1,10 @@
 const { ValidationError } = require("sequelize");
 const { models } = require("../../db/sequelize");
 const auth = require("../../auth/auth");
+const getUserRole = require("../../auth/getUserRole");
 
 module.exports = (app) => {
-  app.get("/api/texte/:id", async (req, res) => {
+  app.get("/api/texte/:id", auth(1, getUserRole), async (req, res) => {
     const { id } = req.params;
 
     try {

@@ -1,11 +1,11 @@
 const { ValidationError, UniqueConstraintError } = require("sequelize");
 const { models } = require("../../db/sequelize");
 const auth = require("../../auth/auth");
+const getUserRole = require("../../auth/getUserRole");
 
 module.exports = (app) => {
-  app.post("/api/obligation", auth, async (req, res) => {
+  app.post("/api/obligation", auth(1, getUserRole), async (req, res) => {
     try {
-
       const newObligation = await models.obligation.create(req.body);
 
       const message = `L'obligation avec l'identifiant n°${newObligation.id_obligation} a été créée avec succès`;

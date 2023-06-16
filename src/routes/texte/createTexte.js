@@ -1,10 +1,9 @@
 const { models } = require("../../db/sequelize");
 const auth = require("../../auth/auth");
+const getUserRole = require("../../auth/getUserRole");
 
 module.exports = (app) => {
-  app.post("/api/texte", auth, async (req, res) => {
-    
-
+  app.post("/api/texte", auth(1, getUserRole), async (req, res) => {
     try {
       const texte = await models.texte.create(req.body);
       const message = `Le texte avec l'identifiant n${texte.id_texte} a été créé avec succès`;
