@@ -112,6 +112,13 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
+        name: "id_entite",
+        using: "BTREE",
+        fields: [
+          { name: "id_entite" },
+        ]
+      },
+      {
         name: "obligation_ibfk_2",
         using: "BTREE",
         fields: [
@@ -151,13 +158,6 @@ module.exports = function(sequelize, DataTypes) {
         using: "BTREE",
         fields: [
           { name: "id_periodicite" },
-        ]
-      },
-      {
-        name: "id_entite",
-        using: "BTREE",
-        fields: [
-          { name: "id_entite" },
         ]
       },
     ]

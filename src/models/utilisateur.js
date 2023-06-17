@@ -26,7 +26,7 @@ module.exports = function(sequelize, DataTypes) {
     email: {
       type: DataTypes.STRING(255),
       allowNull: true,
-      unique: "utilisateur_email_unique"
+      unique: "unique_email"
     },
     mot_de_passe: {
       type: DataTypes.STRING(255),
@@ -62,7 +62,7 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "unique_email",
+        name: "utilisateur_email_unique",
         unique: true,
         using: "BTREE",
         fields: [
@@ -70,7 +70,7 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "utilisateur_email_unique",
+        name: "unique_email",
         unique: true,
         using: "BTREE",
         fields: [

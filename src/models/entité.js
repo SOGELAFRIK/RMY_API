@@ -30,10 +30,6 @@ module.exports = function(sequelize, DataTypes) {
     rcc: {
       type: DataTypes.STRING(30),
       allowNull: false
-    },
-    id_admin: {
-      type: DataTypes.INTEGER,
-      allowNull: false
     }
   }, {
     sequelize,
@@ -46,13 +42,6 @@ module.exports = function(sequelize, DataTypes) {
         using: "BTREE",
         fields: [
           { name: "id_entite" },
-        ]
-      },
-      {
-        name: "id_admin",
-        using: "BTREE",
-        fields: [
-          { name: "id_admin" },
         ]
       },
     ]

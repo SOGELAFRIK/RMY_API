@@ -62,8 +62,6 @@ function initModels(sequelize) {
   utilisateur.hasMany(suivi_obligation, { as: "suivi_obligations", foreignKey: "id_utilisateur"});
   suivi_obligation.belongsTo(utilisateur, { as: "reponsable_mise_oeuvre_utilisateur", foreignKey: "reponsable_mise_oeuvre"});
   utilisateur.hasMany(suivi_obligation, { as: "reponsable_mise_oeuvre_suivi_obligations", foreignKey: "reponsable_mise_oeuvre"});
-  texte.belongsTo(utilisateur, { as: "id_createur_utilisateur", foreignKey: "id_createur"});
-  utilisateur.hasMany(texte, { as: "textes", foreignKey: "id_createur"});
 
   return {
     article,

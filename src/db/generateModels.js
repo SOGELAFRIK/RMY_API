@@ -1,7 +1,7 @@
 const SequelizeAuto = require("sequelize-auto");
 const auto = new SequelizeAuto("gestionobligations", "root", "", {
   host: "localhost",
-  dialect: "mariadb",
+  dialect: "mysql",
   directory: "../models",
   additional: {
     timestamps: false,

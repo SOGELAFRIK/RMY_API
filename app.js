@@ -116,6 +116,10 @@ require('./src/routes/workflow/findWorkflowById')(app);
 /* LOGIN */
 require('./src/routes/login')(app);
 
+/*UPLOADS */
+require('./src/routes/uploads')(app)
+// require("./src/uploads");
+
 app.use(({ res }) => {
     const message = "Impossible de trouver la ressource demander! vous pouver essayer une autre URL";
     res.status(404).json({ message });

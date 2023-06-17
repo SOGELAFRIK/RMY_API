@@ -7,33 +7,25 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       primaryKey: true
     },
-    id_createur: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'utilisateur',
-        key: 'id_utilisateur'
-      }
-    },
     entree_vigueur: {
       type: DataTypes.DATEONLY,
-      allowNull: false
+      allowNull: true
     },
     link_fichier_texte: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: true
     },
     statut: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: true
     },
     type: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: true
     },
     titre_texte: {
       type: DataTypes.STRING(250),
-      allowNull: false
+      allowNull: true
     }
   }, {
     sequelize,
@@ -46,13 +38,6 @@ module.exports = function(sequelize, DataTypes) {
         using: "BTREE",
         fields: [
           { name: "id_texte" },
-        ]
-      },
-      {
-        name: "id_createur",
-        using: "BTREE",
-        fields: [
-          { name: "id_createur" },
         ]
       },
     ]

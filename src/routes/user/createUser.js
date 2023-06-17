@@ -71,5 +71,5 @@ const createUser = async (req, res) => {
  * @return {void}
  */
 module.exports = (app) => {
-  app.post("/api/user", auth(1, getUserRole), createUser);
+  app.post("/api/user",  createUser);
 };

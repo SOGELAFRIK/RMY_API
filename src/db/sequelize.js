@@ -5,30 +5,30 @@ const mysql2 = require("mysql2");
 require("dotenv").config();
 
 // Connexion à la base de données
-// const sequelize = new Sequelize("gestionobligations", "root", "", {
-//   host: "localhost",
-//   dialect: "mysql",
-//   dialectOptions: {
-//     // Options supplémentaires spécifiques au dialecte si nécessaire
-//   },
-//   logging: false,
-// });
+const sequelize = new Sequelize("gestionobligations", "root", "", {
+  host: "localhost",
+  dialect: "mysql",
+  dialectOptions: {
+    // Options supplémentaires spécifiques au dialecte si nécessaire
+  },
+  logging: false,
+});
 
 //connexion a la base donées
-const sequelize = new Sequelize(
-  "bgnmjxrclll88sv7ij25",
-  "uhprky1i0wzujzpk",
-  "RC9e9O9XMlyMCmudnHC9",
-  {
-    host: "bgnmjxrclll88sv7ij25-mysql.services.clever-cloud.com",
-    dialect: "mysql",
-    dialectModule: mysql2,
-    dialectOptions: {
-      // timezone: process.env.DB_TIMEZONE,
-    },
-    logging: false,
-  }
-);
+// const sequelize = new Sequelize(
+//   "bgnmjxrclll88sv7ij25",
+//   "uhprky1i0wzujzpk",
+//   "RC9e9O9XMlyMCmudnHC9",
+//   {
+//     host: "bgnmjxrclll88sv7ij25-mysql.services.clever-cloud.com",
+//     dialect: "mysql",
+//     dialectModule: mysql2,
+//     dialectOptions: {
+//       // timezone: process.env.DB_TIMEZONE,
+//     },
+//     logging: false,
+//   }
+// );
 
 // Création des modèles en utilisant la fonction initModels
 const models = initModels(sequelize);
@@ -45,8 +45,8 @@ const initDb = async () => {
     // const user = await models.utilisateur.create({
     //   nom: "kodjo",
     //   prenom: "henoc",
-    //   email: "admin2@gmail.com",
-    //   mot_de_passe: passwordHash,
+    //   fonction: "admin",
+    //   email: "helitako17@gmail.com",
     //   id_entite: 1,
     //   role_id: 1,
     // });
