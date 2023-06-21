@@ -9,11 +9,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     id_chapitre: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'chapitre',
-        key: 'id_chapitre'
-      }
+      allowNull: true
     },
     titre_article: {
       type: DataTypes.STRING(250),

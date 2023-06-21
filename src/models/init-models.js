@@ -30,8 +30,6 @@ function initModels(sequelize) {
 
   obligation.belongsTo(article, { as: "id_article_associe_article", foreignKey: "id_article_associe"});
   article.hasMany(obligation, { as: "obligations", foreignKey: "id_article_associe"});
-  article.belongsTo(chapitre, { as: "id_chapitre_chapitre", foreignKey: "id_chapitre"});
-  chapitre.hasMany(article, { as: "articles", foreignKey: "id_chapitre"});
   obligation.belongsTo(entité, { as: "id_entite_entité", foreignKey: "id_entite"});
   entité.hasMany(obligation, { as: "obligations", foreignKey: "id_entite"});
   utilisateur.belongsTo(entité, { as: "id_entite_entité", foreignKey: "id_entite"});
@@ -50,8 +48,6 @@ function initModels(sequelize) {
   status_conformite.hasMany(suivi_obligation, { as: "suivi_obligations", foreignKey: "id_status_conformite"});
   chapitre.belongsTo(texte, { as: "id_texte_texte", foreignKey: "id_texte"});
   texte.hasMany(chapitre, { as: "chapitres", foreignKey: "id_texte"});
-  chapitre.belongsTo(utilisateur, { as: "id_createur_utilisateur", foreignKey: "id_createur"});
-  utilisateur.hasMany(chapitre, { as: "chapitres", foreignKey: "id_createur"});
   obligation.belongsTo(utilisateur, { as: "id_commenditaire_utilisateur", foreignKey: "id_commenditaire"});
   utilisateur.hasMany(obligation, { as: "obligations", foreignKey: "id_commenditaire"});
   obligation.belongsTo(utilisateur, { as: "id_executeur_utilisateur", foreignKey: "id_executeur"});

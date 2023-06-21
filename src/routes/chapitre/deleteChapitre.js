@@ -3,7 +3,7 @@ const auth = require("../../auth/auth");
 const getUserRole = require("../../auth/getUserRole");
 
 module.exports = (app) => {
-  app.delete("/api/chapitres/:id", auth(1, getUserRole), async (req, res) => {
+  app.delete("/api/chapitre/:id", auth(1, getUserRole), async (req, res) => {
     const { id } = req.params;
 
     try {

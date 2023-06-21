@@ -22,14 +22,6 @@ module.exports = function(sequelize, DataTypes) {
     corps_chapitre: {
       type: DataTypes.TEXT,
       allowNull: false
-    },
-    id_createur: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'utilisateur',
-        key: 'id_utilisateur'
-      }
     }
   }, {
     sequelize,
@@ -42,20 +34,6 @@ module.exports = function(sequelize, DataTypes) {
         using: "BTREE",
         fields: [
           { name: "id_chapitre" },
-        ]
-      },
-      {
-        name: "id_createur",
-        using: "BTREE",
-        fields: [
-          { name: "id_createur" },
-        ]
-      },
-      {
-        name: "id_article",
-        using: "BTREE",
-        fields: [
-          { name: "id_texte" },
         ]
       },
     ]
